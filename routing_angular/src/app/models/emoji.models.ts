@@ -1,13 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
 
-export interface Emoji
-{
-  name : string;
-  emoji : string;
-};
 
-export const FRUITS : Emoji[] = [
+export const FRUITS = [
     { name: 'l3ineb', emoji: '🍇' },
     { name: 'btikha', emoji: '🍈' },
     { name: 'della7a', emoji: '🍉' },
@@ -22,7 +15,7 @@ export const FRUITS : Emoji[] = [
     { name: '7eb lmlouk', emoji: '🍒' },
   ];
 
- export const  ANIMALS : Emoji[] = [
+ export const  ANIMALS = [
     { name: '9erd', emoji: '🐒' },
     { name: 'kelb', emoji: '🐶' },
     { name: 'dib', emoji: '🐺' },
@@ -64,36 +57,4 @@ export const FRUITS : Emoji[] = [
     { name: 'ne7la', emoji: '🐝' },
     { name: 'koksinil', emoji: '🐞' }
   ];
-
-
-
-@Component({
-  selector: 'app-gneric',
-  imports: [],
-  templateUrl: './gneric.html',
-  styleUrl: './gneric.css',
-})
-export class Gneric {
-  //Crea un vettore di tipo Emoji e lo inizializza
-  genVect : Emoji[]= [{name:"", emoji:""}];
-  //Riceve l'oggetto ActivatedRoute come dependency injection
-  constructor(private route: ActivatedRoute) {
-    //Gestisce i cambi di route con l'observable paramMap
-    this.route.paramMap.subscribe(this.getRouterParam);
-  }
- 
-  //Ogni volta che viene invocata la route tracks/:id, l'observable paramMap richiama questo metodo
-  getRouterParam = (params: ParamMap) =>
-  {
-    let uri_param = params.get('id'); //Ottengo l'id dalla ParamMap
-    console.log (uri_param); //Stampo su console
-    //this.service.getTrack()
-    if (uri_param == 'fruits') this.genVect = FRUITS;
-    if (uri_param == 'animals') this.genVect = ANIMALS;
-  }
-}
-
-
-
-
 
