@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: 'animals', component: Animals},
   { path: 'fruits', component: Fruits},
   {path: '', redirectTo: '/animals', pathMatch: 'full'},
-  { path: 'generic/:id', component: Gneric}
+  { path: ':id', component: Gneric}
 ];
